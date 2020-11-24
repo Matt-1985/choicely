@@ -2,7 +2,7 @@
 name: Structural Board
 about: Organisation of journeyman's piece
 title: Orga
-labels: backend, design, userstories
+labels: ''
 assignees: Matt-1985
 
 ---
@@ -16,6 +16,6 @@ Als <Rolle> möchte ich <Ziel/Wunsch>, um <Nutzen>
 
 ## ToDos
 
-[ ] 
-[ ] 
-[ ]
+- [ ] 
+- [ ] 
+- [ ]
