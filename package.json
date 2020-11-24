@@ -1,0 +1,53 @@
+{
+  "name": "starter_template",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Boilerplate",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "build": "cd client && npm run build && npm run build-storybook",
+    "test:watch": "cd client && npm run test:watch",
+    "test": "npm run lint && npm run prettier && cd client && npm test",
+    "lint": "eslint . --ext .js",
+    "prettify": "prettier --write .",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "cd client && npm start",
+    "prettier": "prettier --check \"**/*.{js,jsx,ts,tsx,md,mdx,html,css,json}\"",
+    "server": "nodemon server.js",
+    "storybook": "cd client && npm run storybook",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matt-1985/starter_template.git"
+  },
+  "author": "Matthias Rodrigues de Franca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matt-1985/starter_template/issues"
+  },
+  "homepage": "https://github.com/Matt-1985/starter_template#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
