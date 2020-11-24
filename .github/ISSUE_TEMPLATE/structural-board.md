@@ -2,19 +2,19 @@
 name: Structural Board
 about: Organisation of journeyman's piece
 title: Orga
-labels: userstories
+labels: userstories, design, backend
 assignees: Matt-1985
 
 ---
 
-##User story
----
+## User story
 
-##Notes / Links / Further Description
----
 
-##ToDos
----
+## Notes / Links / Further Description
+
+
+## ToDos
+
 [ ] 
 [ ] 
 [ ]
