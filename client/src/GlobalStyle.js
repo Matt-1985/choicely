@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components/macro";
 import AtamiRegular from "./stories/assets/fonts/AtamiRegular.otf";
 import AtamiBold from "../src/stories/assets/fonts/AtamiBold.otf";
 
@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
   font-weight: 600;
   src: url(${AtamiBold})
 }
+
+html {
+  height: 100%;
+}
  
  :root {
    --primary-color: #fbfbfb;
@@ -32,12 +36,14 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body{
+
 margin: 0;
 font-size: 18;
 font-family: "AtamiRegular";
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 color: var(--guidance-color);
+background-color: var(--primary-color)
 
 }
 
