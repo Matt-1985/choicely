@@ -4,7 +4,7 @@ import SplashPage from "./pages/SplashPage";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <GlobalStyle />
       <SplashPage />
     </div>
