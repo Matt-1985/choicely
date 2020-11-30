@@ -5,6 +5,9 @@ import styled from "styled-components/macro";
 const SecondaryButton = styled.button`
   border: none;
   background: transparent;
+  :active {
+    opacity: 0.6;
+  }
 `;
 
 export default function RefreshButton() {

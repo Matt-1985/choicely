@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components/macro";
 import AtamiRegular from "./stories/assets/fonts/AtamiRegular.otf";
-import AtamiBold from "../src/stories/assets/fonts/AtamiBold.otf";
+import AtamiBold from "./stories/assets/fonts/AtamiBold.otf";
 
 const GlobalStyle = createGlobalStyle`
  *, *::after, *::before {
