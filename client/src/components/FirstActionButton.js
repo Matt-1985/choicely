@@ -81,10 +81,16 @@ const ActionButton = styled.button`
       }
     }
   }
+  span {
+    color: #fbfbfb;
+  }
 `;
 
 const Outline = styled.div`
-  position: relative;
+  position: absolute;
+  right: 6px;
+  left: -6px;
+  top: 6px;
   width: 200px;
   height: 200px;
   border: 1px solid #607a94;
@@ -94,18 +100,13 @@ const Outline = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  span {
-    color: #fbfbfb;
-  }
 `;
 
 export default function FirstActionButton() {
   return (
     <ActionButton>
-      <Outline>
-        <span>Was gibts heute zu essen?</span>
-      </Outline>
+      <span>Was gibts heute zu essen?</span>
+      <Outline />
     </ActionButton>
   );
 }
