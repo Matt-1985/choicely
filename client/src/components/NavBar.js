@@ -20,7 +20,7 @@ const Navigation = styled.footer`
   }
 `;
 
-export default function BottomNavigation() {
+export default function NavBar() {
   return (
     <Navigation>
       <a href="/">
