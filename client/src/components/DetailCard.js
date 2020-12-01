@@ -4,8 +4,8 @@ import restaurant from "../stories/assets/restaurant.png";
 
 const FinalCardContainer = styled.div`
   margin: 0 10vw;
-  height: 65vh;
-  width: 25vw;
+  /* height: 65vh;
+  width: 25vw; */
   border: 1px solid grey;
   display: grid;
   grid-template-rows: auto auto 3fr;

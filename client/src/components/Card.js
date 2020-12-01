@@ -4,8 +4,8 @@ import restaurant from "../stories/assets/restaurant.png";
 
 const DesicionCardContainer = styled.div`
   margin: 0 10vw;
-  height: 45vh;
-  width: 15vw;
+  /* height: 45vh;
+  width: 15vw; */
   border: 1px solid grey;
   display: grid;
   grid-template-rows: auto auto 3fr;
