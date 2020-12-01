@@ -1,12 +1,12 @@
 import React from "react";
-import "./App.css";
-import Button from "./stories/Button";
+import GlobalStyle from "./GlobalStyle";
+import SplashPage from "./pages/SplashPage";
 
 function App() {
   return (
-    <div className="App">
-      <Button />
-      <a href="/storybook">To Storybook</a>
+    <div>
+      <GlobalStyle />
+      <SplashPage />
     </div>
   );
 }
