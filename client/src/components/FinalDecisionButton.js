@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 
 const DecisionButton = styled.button`
   position: relative;
+  grid-area: content;
   width: 200px;
   height: 100px;
   border: none;

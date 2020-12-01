@@ -15,6 +15,8 @@ import styled from "styled-components/macro";
 const PrimaryButton = styled.button`
   border: none;
   background: transparent;
+  grid-area: footer;
+  margin: 0 1rem;
   :active {
     opacity: 0.6;
   }
