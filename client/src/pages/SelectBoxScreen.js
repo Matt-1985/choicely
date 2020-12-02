@@ -1,10 +1,10 @@
-import styled from "styled-components/macro";
 import React from "react";
+import styled from "styled-components/macro";
 import { PageContainer } from "../components/PageContainer";
-import Card from "../components/Card";
+import SelectBox from "../components/SelectBox";
 import NavBar from "../components/NavBar";
 
-const CardContainer = styled.div`
+const SelectBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,14 +14,14 @@ const CardContainer = styled.div`
   gap: 4vh;
 `;
 
-export default function DesicionScreenLazy() {
+export default function SelectBoxScreen() {
   return (
     <PageContainer>
-      <CardContainer>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-      </CardContainer>
+      <SelectBoxContainer>
+        <SelectBox />
+        <SelectBox />
+        <SelectBox />
+      </SelectBoxContainer>
       <NavBar />
     </PageContainer>
   );

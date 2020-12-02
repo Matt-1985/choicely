@@ -1,27 +1,24 @@
 import styled from "styled-components/macro";
 import React from "react";
 import { PageContainer } from "../components/PageContainer";
-import Card from "../components/Card";
+import DetailCard from "../components/DetailCard";
 import NavBar from "../components/NavBar";
 
-const CardContainer = styled.div`
+const DetailCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  margin-bottom: 15vh;
+  margin-bottom: 10vh;
   padding: 15%;
-  gap: 4vh;
 `;
 
-export default function DesicionScreenLazy() {
+export default function DetailCardScreenLazy() {
   return (
     <PageContainer>
-      <CardContainer>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-      </CardContainer>
+      <DetailCardContainer>
+        <DetailCard />
+      </DetailCardContainer>
       <NavBar />
     </PageContainer>
   );
