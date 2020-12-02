@@ -8,11 +8,9 @@ const DecisionButton = styled.button`
   border: none;
   border-radius: 12px;
   background-color: var(--decision-1-color);
+  color: #607a94;
   :active {
     opacity: 0.6;
-  }
-  span {
-    color: #607a94;
   }
 `;
 
@@ -42,7 +40,7 @@ const Outline1 = styled.div`
 export default function FinalDecisionButton() {
   return (
     <DecisionButton>
-      <span>1-Klick-Decision</span>
+      1-Klick-Decision
       <Outline1 />
     </DecisionButton>
   );
