@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { PageContainer } from "../components/PageContainer";
 import SelectBox from "../components/SelectBox";
 import NavBar from "../components/NavBar";
 
@@ -16,13 +15,13 @@ const SelectBoxContainer = styled.div`
 
 export default function SelectBoxScreen() {
   return (
-    <PageContainer>
+    <>
       <SelectBoxContainer>
         <SelectBox />
         <SelectBox />
         <SelectBox />
       </SelectBoxContainer>
       <NavBar />
-    </PageContainer>
+    </>
   );
 }
