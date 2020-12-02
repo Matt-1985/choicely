@@ -9,8 +9,8 @@ const Div = styled.div`
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  gap: 60px;
-  padding-bottom: 15vh;
+  margin-bottom: 15vh;
+  gap: 8vh;
 `;
 
 export default function DesicionPage() {
@@ -20,7 +20,6 @@ export default function DesicionPage() {
         <FinalDesicionButton />
         <FinalDesicionButton />
       </Div>
-
       <BackButton />
     </PageContainer>
   );

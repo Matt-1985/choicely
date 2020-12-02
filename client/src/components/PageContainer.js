@@ -5,8 +5,7 @@ export const PageContainer = styled.div`
   height: 100vh;
   display: grid;
   grid-template-rows: 85px 1fr 85px;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
   grid-template-areas:
     "header"
     "content"
