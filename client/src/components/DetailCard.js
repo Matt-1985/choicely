@@ -4,8 +4,8 @@ import restaurant from "../stories/assets/restaurant.png";
 
 const FinalCardContainer = styled.div`
   margin: 0 10vw;
-  /* height: 65vh;
-  width: 25vw; */
+  height: 65vh;
+  width: 45vw;
   border: 1px solid grey;
   display: grid;
   grid-template-rows: auto auto 3fr;
@@ -42,7 +42,6 @@ export default function DetailCard() {
       <FinalHeader>LOREM IPSUM</FinalHeader>
       <FinalInfo>
         Est duis labore dolor ut consectetur eu do ex anim tempor.Aliquip culpa
-        anim aliquip ut laborum nulla reprehenderit dolore. Anim laboris.
       </FinalInfo>
       <FinalLink href="url">✆</FinalLink>
       <FinalLink href="url">Lorem Ipsum</FinalLink>
