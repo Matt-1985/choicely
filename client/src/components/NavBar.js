@@ -4,15 +4,15 @@ import BackButton from "../stories/assets/back_btn.svg";
 import RefreshButton from "../stories/assets/refresh_btn.svg";
 
 const Navigation = styled.footer`
-  border: 1px solid grey;
-  height: 75px;
-  width: 20vw;
+  border: none;
+  width: 100%;
   padding: 5px;
   position: fixed;
   bottom: 0;
   display: flex;
   justify-content: space-evenly;
-
+  grid-area: footer;
+  background-color: var(--primary-color);
   img {
     :active {
       opacity: 0.6;
