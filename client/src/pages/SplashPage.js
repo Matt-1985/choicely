@@ -3,10 +3,11 @@ import logo from "../stories/assets/logo.svg";
 import styled from "styled-components/macro";
 
 const LogoContainer = styled.div`
-  height: 100vh;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: content;
   place-items: center;
-  background-color: var(--primary-color);
   img {
     height: 20vh;
     width: 80vw;

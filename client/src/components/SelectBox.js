@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import PropTypes from "prop-types";
 
 export const SelectField = styled.select`
   border: none;
@@ -7,9 +8,9 @@ export const SelectField = styled.select`
   background: tranparent;
 `;
 
-export default function SelectBox() {
+export default function SelectBox({ onChange, name }) {
   return (
-    <SelectField>
+    <SelectField onChange={onChange} name={name}>
       <option value="" hidden>
         Wähle aus
       </option>
@@ -19,3 +20,8 @@ export default function SelectBox() {
     </SelectField>
   );
 }
+
+SelectBox.propTypes = {
+  onChange: PropTypes.func,
+  name: PropTypes.string,
+};

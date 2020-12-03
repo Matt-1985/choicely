@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import BackButton from "../components/BackButton";
 import FinalDesicionButton from "../components/FinalDecisionButton";
+import { Link } from "react-router-dom";
 
 const Div = styled.div`
   display: flex;
@@ -16,8 +17,12 @@ export default function DesicionPage() {
   return (
     <>
       <Div>
-        <FinalDesicionButton />
-        <FinalDesicionButton />
+        <Link to="/choice" label="choice">
+          <FinalDesicionButton />
+        </Link>
+        <Link to="/select" label="select">
+          <FinalDesicionButton />
+        </Link>
       </Div>
       <BackButton />
     </>

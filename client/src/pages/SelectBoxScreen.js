@@ -1,27 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components/macro";
 import SelectBox from "../components/SelectBox";
-import NavBar from "../components/NavBar";
+import BackButton from "../components/BackButton";
 
 const SelectBoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  margin-bottom: 15vh;
   padding: 15%;
-  gap: 4vh;
+  gap: 35px;
 `;
 
 export default function SelectBoxScreen() {
+  const [select1, setSelect1] = useState(null);
+  const [select2, setSelect2] = useState(null);
+  const [select3, setSelect3] = useState(null);
+
+  const nextPage = (e) => {
+    switch (e.target.name) {
+      case "1":
+        setSelect1(e.target.value);
+        break;
+      case "2":
+        setSelect2(e.target.value);
+        break;
+      case "3":
+        setSelect3(e.target.value);
+        break;
+      default:
+        console.log("shit");
+    }
+  };
+
   return (
     <>
+      {select1 && console.log({ select1 })}
+      {select2 && console.log({ select2 })}
+      {select3 && console.log({ select3 })}
       <SelectBoxContainer>
-        <SelectBox />
-        <SelectBox />
-        <SelectBox />
+        <SelectBox onChange={nextPage} name="1" />
+        <SelectBox onChange={nextPage} name="2" />
+        <SelectBox onChange={nextPage} name="3" />
       </SelectBoxContainer>
-      <NavBar />
+      <BackButton />
     </>
   );
 }
