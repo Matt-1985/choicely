@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import styled from "styled-components/macro";
-import SelectBox from "../components/SelectBox";
+// import SelectBox from "../components/SelectBox";
 import BackButton from "../components/BackButton";
+import MultiSelectBox from "../components/MultiSelectBox";
 
 const SelectBoxContainer = styled.div`
   display: flex;
@@ -13,32 +14,30 @@ const SelectBoxContainer = styled.div`
 `;
 
 export default function SelectBoxScreen() {
-  const [select1, setSelect1] = useState(null);
-  const [select2, setSelect2] = useState(null);
-  const [select3, setSelect3] = useState(null);
+  //   const [select1, setSelect1] = useState(null);
+  //   const [select2, setSelect2] = useState(null);
+  //   const [select3, setSelect3] = useState(null);
 
-  const nextPage = (e) => {
-    switch (e.target.name) {
-      case "1":
-        setSelect1(e.target.value);
-        break;
-      case "2":
-        setSelect2(e.target.value);
-        break;
-      case "3":
-        setSelect3(e.target.value);
-        break;
-      default:
-        console.log("shit");
-    }
-  };
+  //   const nextPage = (e) => {
+  //     switch (e.target.name) {
+  //       case select1:
+  //         setSelect1(e.target.value);
+  //         break;
+  //       case select2:
+  //         setSelect2(e.target.value);
+  //         break;
+  //       case select3:
+  //         setSelect3(e.target.value);
+  //         break;
+  //       default:
+  //         console.log("test");
+  //     }
+  //   };
 
   return (
     <>
       <SelectBoxContainer>
-        <SelectBox onChange={nextPage} name="1" />
-        <SelectBox onChange={nextPage} name="2" />
-        <SelectBox onChange={nextPage} name="3" />
+        <MultiSelectBox />
       </SelectBoxContainer>
       <BackButton />
     </>
