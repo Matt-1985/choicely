@@ -1,6 +1,7 @@
 import React from "react";
 import back_btn from "../stories/assets/back_btn.svg";
 import styled from "styled-components/macro";
+import { useHistory } from "react-router-dom";
 
 // const icons = {
 //   back: {
@@ -23,8 +24,9 @@ const PrimaryButton = styled.button`
 `;
 
 export default function BackButton() {
+  const history = useHistory();
   return (
-    <PrimaryButton>
+    <PrimaryButton onClick={() => history.goBack()}>
       <img src={back_btn} className="" alt="back button" />
     </PrimaryButton>
   );

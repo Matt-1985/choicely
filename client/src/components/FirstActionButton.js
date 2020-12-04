@@ -105,8 +105,8 @@ const Outline = styled.div`
 export default function FirstActionButton() {
   return (
     <ActionButton>
-      <span>Was gibts heute zu essen?</span>
       <Outline />
+      <span>Was gibts heute zu essen?</span>
     </ActionButton>
   );
 }

@@ -22,8 +22,12 @@ const GlobalStyle = createGlobalStyle`
   src: url(${AtamiBold})
 }
 
-html {
-  height: 100%;
+html, body {
+  height:100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+
 }
  
  :root {
@@ -35,9 +39,11 @@ html {
    --input-placeholder-color: #607A94;
 }
 
-body{
+#root {
+  height:100%;
+}
 
-margin: 0;
+body{
 font-size: 18;
 font-family: "AtamiRegular";
 -webkit-font-smoothing: antialiased;

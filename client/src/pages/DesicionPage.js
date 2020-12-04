@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import BackButton from "../components/BackButton";
 import FinalDesicionButton from "../components/FinalDecisionButton";
-import { PageContainer } from "../components/PageContainer";
+import { Link } from "react-router-dom";
 
 const Div = styled.div`
   display: flex;
@@ -15,12 +15,16 @@ const Div = styled.div`
 
 export default function DesicionPage() {
   return (
-    <PageContainer>
+    <>
       <Div>
-        <FinalDesicionButton />
-        <FinalDesicionButton />
+        <Link to="/choice" label="choice">
+          <FinalDesicionButton />
+        </Link>
+        <Link to="/select" label="select">
+          <FinalDesicionButton />
+        </Link>
       </Div>
       <BackButton />
-    </PageContainer>
+    </>
   );
 }
