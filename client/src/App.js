@@ -30,7 +30,7 @@ function App() {
           <Route path="/choice">
             <DesicionScreenLazy />
           </Route>
-          <Route path="/detailDesicion">
+          <Route path="/detaildesicion">
             <DetailCardScreenLazy />
           </Route>
         </Switch>
