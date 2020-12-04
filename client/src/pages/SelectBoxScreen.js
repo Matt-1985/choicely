@@ -35,9 +35,6 @@ export default function SelectBoxScreen() {
 
   return (
     <>
-      {select1 && console.log({ select1 })}
-      {select2 && console.log({ select2 })}
-      {select3 && console.log({ select3 })}
       <SelectBoxContainer>
         <SelectBox onChange={nextPage} name="1" />
         <SelectBox onChange={nextPage} name="2" />
