@@ -15,10 +15,10 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
-app.get("/api/restaurants/:restaurant_id", async (req, res) => {
-  const { restaurant_id } = req.params;
+app.get("/api/restaurants/:cuisine", async (req, res) => {
+  const { cuisine } = req.params;
   try {
-    const value = await getRandomRestaurant(restaurant_id);
+    const value = await getRandomRestaurant(cuisine);
     if (!value) {
       res.status(404).send("There is no such a restaurant");
       return;
