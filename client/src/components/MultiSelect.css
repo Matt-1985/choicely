@@ -1,0 +1,207 @@
+.msl-flx {
+  display: inline-flex;
+  align-items: center;
+}
+.msl-vars {
+  --menu-max-height: 400px;
+  --font-size: 16px;
+  --border-radius: 7px;
+  --transition: 200ms;
+  --menu-shadow: 1px 1px 5px 0px grey;
+  --option-bg-hover: #e9e9e9;
+}
+.msl-wrp {
+  position: relative;
+  border-radius: var(--border-radius);
+}
+.msl-disabled {
+  pointer-events: none !important;
+}
+.msl-disabled > .msl {
+  background-color: #f6f6f6;
+}
+.msl {
+  overflow: hidden;
+  border: 1px solid #9c9c9c;
+  border-radius: var(--border-radius);
+  outline: none;
+  cursor: text;
+}
+.msl:not(.msl-active):hover {
+  border-color: #505050;
+}
+.msl-active {
+  background-color: #fff;
+  border-color: transparent;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+.msl-active,
+.msl-active ~ .msl-options {
+  box-shadow: var(--menu-shadow);
+  z-index: 999;
+}
+.msl-active ~ .msl-options {
+  -webkit-clip-path: inset(0 -10px -10px -10px);
+  clip-path: inset(0 -10px -10px -10px);
+  max-height: var(--menu-max-height);
+}
+.msl-input,
+.msl-input-wrp {
+  display: inline-block;
+  vertical-align: top;
+}
+.msl-input {
+  outline: none;
+  margin: 5px;
+  line-height: 1;
+  padding: 3px;
+  font-size: var(--font-size);
+}
+.msl-input:before {
+  line-height: 1;
+  color: #929292;
+}
+.msl-input[data-placeholder]:not([data-placeholder=""]):empty:before {
+  content: attr(data-placeholder);
+}
+.msl-chip {
+  background: #eee;
+  border-radius: calc(var(--border-radius) - 3px);
+  margin: 5px;
+  padding: 3px 3px 3px 6px;
+  white-space: nowrap;
+  font-size: calc(var(--font-size) - 3px);
+  display: inline-flex;
+  align-items: center;
+  line-break: anywhere;
+  white-space: break-spaces;
+}
+.msl-single-value {
+  display: inline-block;
+  margin: 5px;
+  padding: 3px;
+  vertical-align: top;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: var(--font-size);
+  line-break: strict;
+  white-space: nowrap;
+}
+.msl-options {
+  position: absolute;
+  width: 100%;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background: #fff;
+  max-height: 0;
+  overflow: auto;
+}
+.msl-options::-webkit-scrollbar {
+  width: 8px;
+}
+.msl-options::-webkit-scrollbar-track {
+  background: transparent;
+}
+.msl-options::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+.msl-options::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.msl-grp-title,
+.msl-options .msl-option {
+  font-size: var(--font-size);
+  border-radius: calc(var(--border-radius) - 3px);
+  padding: 7px 5px;
+  cursor: pointer;
+  margin: 4px 6px;
+  line-break: anywhere;
+  line-height: 1.2;
+  outline: none;
+  white-space: break-spaces;
+  transition: background 0.2s;
+}
+.msl-btn:focus-visible,
+.msl-option:focus-visible {
+  outline: 2px solid #07f;
+}
+.msl-grp-title {
+  font-size: calc(var(--font-size) - 2px);
+  cursor: default;
+  background: #fafafa;
+  opacity: 0.7;
+}
+.msl-options .msl-option:last-child {
+  margin-bottom: 5px;
+}
+.msl-option:focus,
+.msl-options .msl-option:hover {
+  background: var(--option-bg-hover);
+}
+.msl-option-active {
+  background: #e6f4fa;
+  color: #0351ff;
+}
+.msl-option-disable {
+  color: rgba(0, 0, 0, 0.3);
+}
+.msl-btn {
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  padding: 0;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+}
+.msl-actions {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translatey(-50%);
+}
+.msl-arrow-btn,
+.msl-clear-btn {
+  width: 25px;
+  height: 25px;
+  transition: transform var(--transition);
+}
+.msl-clear-btn .msl-close-icn {
+  transform: scale(0.7);
+}
+.msl-arrow-btn:hover,
+.msl-clear-btn:hover {
+  background: #d3d3d3;
+}
+.msl-arrow-icn > line,
+.msl-close-icn > line {
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke: rgba(0, 0, 0, 0.6);
+}
+.msl-arrow-icn {
+  height: 20px;
+  width: 20px;
+  transform: scale(0.8);
+}
+.msl-chip-delete {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  margin-left: 3px;
+  background: #dadada;
+}
+.msl-chip-delete:hover {
+  background: #d3d3d3;
+}
+.msl-chip-delete .msl-close-icn {
+  transform: scale(0.6);
+}
+.msl-chip-delete .msl-close-icn > line {
+  stroke-width: 1;
+}
+.msl-close-icn {
+  height: 15px;
+  width: 15px;
+}
