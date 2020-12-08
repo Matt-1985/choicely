@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../stories/assets/logo.svg";
 import styled from "styled-components/macro";
 
@@ -14,32 +13,17 @@ const LogoContainer = styled.div`
   }
 
   .slide-in-top {
-    -webkit-animation: slide-in-top 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-      both;
-    animation: slide-in-top 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-in-top 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
-  @-webkit-keyframes slide-in-top {
-    0% {
-      -webkit-transform: translateY(-1000px);
-      transform: translateY(-1000px);
-      opacity: 0;
-    }
-    100% {
-      -webkit-transform: translateY(0);
-      transform: translateY(0);
-      opacity: 2;
-    }
-  }
+
   @keyframes slide-in-top {
     0% {
-      -webkit-transform: translateY(-1000px);
       transform: translateY(-1000px);
       opacity: 0;
     }
     100% {
-      -webkit-transform: translateY(0);
       transform: translateY(0);
-      opacity: 2;
+      opacity: 1;
     }
   }
 `;
