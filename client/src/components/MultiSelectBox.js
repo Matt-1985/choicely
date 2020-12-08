@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MultiSelect from "react-multiple-select-dropdown-lite";
-import { getRandomRestaurant } from "../../api/restaurants";
+import { getRandomRestaurant } from "../api/restaurants";
 import "../components/MultiSelect.css";
 import Card from "./Card";
 
@@ -9,6 +9,10 @@ import Card from "./Card";
 
 const MultiSelectBox = () => {
   const [value, setValue] = useState("");
+  const [rImg, setRImg] = useState("");
+  const [rName, setRName] = useState("");
+  const [rDiet, setRDiet] = useState("");
+  const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
   const handleOnChange = (val) => {
     setValue(val);
@@ -26,15 +30,22 @@ const MultiSelectBox = () => {
     { label: "Bestellen", value: "Bestellen" },
     { label: "Kochen", value: "Kochen" },
   ];
-  useEffect((event) => {
-    event.preventDefault();
+  useEffect(() => {
+    // event.prevent.default();
 
     async function getData() {
       const waitingUser = await getRandomRestaurant(value);
-      return waitingUser;
+      // const { img, name, diet } = waitingUser;
+      // setRImg(img);
+      // setRName(name);
+      // setRDiet(diet);
+      const restaurantDetails = waitingUser[0];
+      setFilteredRestaurants(restaurantDetails);
+      console.log(waitingUser);
+      console.log(filteredRestaurants);
     }
     getData();
-  }, []);
+  }, [filteredRestaurants]);
 
   return (
     <div className="app">
@@ -47,7 +58,20 @@ const MultiSelectBox = () => {
         placeholder={"Wähle aus"}
         className="multiselect"
       />
-      <Card />
+      {filteredRestaurants?.map((filteredRestaurant) => (
+        <Card
+          key={filteredRestaurant.restaurant_id}
+          restaurantImg={filteredRestaurant.img}
+          restaurantName={filteredRestaurant.name}
+          restaurantDiet={filteredRestaurant.diet}
+        />
+      ))}
+
+      {/* <Card
+        restaurantImg={rImg}
+        restaurantName={rName}
+        restaurantDiet={rDiet}
+      /> */}
     </div>
   );
 };
