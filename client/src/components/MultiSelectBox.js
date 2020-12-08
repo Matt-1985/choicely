@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MultiSelect from "react-multiple-select-dropdown-lite";
+import { getRandomRestaurant } from "../../api/restaurants";
 import "../components/MultiSelect.css";
+import Card from "./Card";
+
+//bei der filter auswahl soll die richtige karte angezeigt werden,
+// anfrage der filteroptionen wird an api gesendet und die passenden ergebnisse werden ausgegeben
 
 const MultiSelectBox = () => {
   const [value, setValue] = useState("");
@@ -21,6 +26,15 @@ const MultiSelectBox = () => {
     { label: "Bestellen", value: "Bestellen" },
     { label: "Kochen", value: "Kochen" },
   ];
+  useEffect((event) => {
+    event.preventDefault();
+
+    async function getData() {
+      const waitingUser = await getRandomRestaurant(value);
+      return waitingUser;
+    }
+    getData();
+  }, []);
 
   return (
     <div className="app">
@@ -33,6 +47,7 @@ const MultiSelectBox = () => {
         placeholder={"Wähle aus"}
         className="multiselect"
       />
+      <Card />
     </div>
   );
 };
