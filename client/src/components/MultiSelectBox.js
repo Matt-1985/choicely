@@ -9,9 +9,9 @@ import Card from "./Card";
 
 const MultiSelectBox = () => {
   const [value, setValue] = useState("");
-  const [rImg, setRImg] = useState("");
-  const [rName, setRName] = useState("");
-  const [rDiet, setRDiet] = useState("");
+  // const [rImg, setRImg] = useState("");
+  // const [rName, setRName] = useState("");
+  // const [rDiet, setRDiet] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
   const handleOnChange = (val) => {
@@ -27,25 +27,19 @@ const MultiSelectBox = () => {
     { label: "Europäisch", value: "Europäisch" },
     { label: "Lateinamerikanisch", value: "Lateinamerikanisch" },
     { label: "Afrikanisch", value: "Afrikanisch" },
-    { label: "Bestellen", value: "Bestellen" },
-    { label: "Kochen", value: "Kochen" },
   ];
   useEffect(() => {
     // event.prevent.default();
-
+    if (!value) {
+      return;
+    }
     async function getData() {
-      const waitingUser = await getRandomRestaurant(value);
-      // const { img, name, diet } = waitingUser;
-      // setRImg(img);
-      // setRName(name);
-      // setRDiet(diet);
-      const restaurantDetails = waitingUser[0];
-      setFilteredRestaurants(restaurantDetails);
-      console.log(waitingUser);
-      console.log(filteredRestaurants);
+      const restaurants = await getRandomRestaurant(value);
+
+      setFilteredRestaurants(restaurants);
     }
     getData();
-  }, [filteredRestaurants]);
+  }, [value]);
 
   return (
     <div className="app">

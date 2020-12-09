@@ -1,5 +1,5 @@
-export async function getRandomRestaurant() {
-  const response = await fetch(`/api/restaurants/restaurant_id`);
+export async function getRandomRestaurant(cuisine) {
+  const response = await fetch(`/api/restaurants/${cuisine}`);
 
   if (!response.ok) {
     const message = await response.text();
