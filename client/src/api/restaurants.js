@@ -1,12 +1,9 @@
-export async function getRandomRestaurant(cuisine) {
-  const response = await fetch(`/api/restaurants/${cuisine}`);
-
+export async function getRestaurants(cuisines) {
+  const response = await fetch(`/api/restaurants/${cuisines}`);
   if (!response.ok) {
-    const message = await response.text();
-    throw new Error(message);
+    console.log(response.json());
   }
+  const data = await response.json();
 
-  const RestaurantNameList = await response.json();
-
-  return RestaurantNameList;
+  return data;
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MultiSelect from "react-multiple-select-dropdown-lite";
-import { getRandomRestaurant } from "../api/restaurants";
+import { getRestaurants } from "../api/restaurants";
 import "../components/MultiSelect.css";
 import Card from "./Card";
 
@@ -13,20 +13,22 @@ const MultiSelectBox = () => {
   // const [rName, setRName] = useState("");
   // const [rDiet, setRDiet] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
+  // const [allRestaurants , setAllRestaurants] = useState()
 
   const handleOnChange = (val) => {
     setValue(val);
   };
+
   const options = [
-    { label: "Fleisch", value: "Fleisch" },
-    { label: "Vegetarisch", value: "Vegetarisch" },
-    { label: "Vegan", value: "Vegan" },
+    { label: "Fleisch", value: "1" },
+    { label: "Vegetarisch", value: "2" },
+    { label: "Vegan", value: "3" },
     { label: "Asiatisch", value: "Asiatisch" },
     { label: "Amerikanisch", value: "Amerikanisch" },
-    { label: "Deutsch", value: "Deutsch" },
-    { label: "Europäisch", value: "Europäisch" },
-    { label: "Lateinamerikanisch", value: "Lateinamerikanisch" },
-    { label: "Afrikanisch", value: "Afrikanisch" },
+    { label: "Deutsch", value: "6" },
+    { label: "Europäisch", value: "7" },
+    { label: "Lateinamerikanisch", value: "8" },
+    { label: "Afrikanisch", value: "9" },
   ];
   useEffect(() => {
     // event.prevent.default();
@@ -34,8 +36,7 @@ const MultiSelectBox = () => {
       return;
     }
     async function getData() {
-      const restaurants = await getRandomRestaurant(value);
-
+      const restaurants = await getRestaurants(value);
       setFilteredRestaurants(restaurants);
     }
     getData();
@@ -54,10 +55,11 @@ const MultiSelectBox = () => {
       />
       {filteredRestaurants?.map((filteredRestaurant) => (
         <Card
-          key={filteredRestaurant.restaurant_id}
+          key={filteredRestaurant._id}
           restaurantImg={filteredRestaurant.img}
           restaurantName={filteredRestaurant.name}
           restaurantDiet={filteredRestaurant.diet}
+          restaurantCuisine={filteredRestaurant.cuisine}
         />
       ))}
 

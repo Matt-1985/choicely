@@ -33,12 +33,14 @@ export default function Card({
   restaurantImg,
   restaurantName,
   restaurantDiet,
+  restaurantCuisine,
 }) {
+  const diet = restaurantDiet.toString();
   return (
     <DesicionCardContainer>
       <DesicionImage src={restaurantImg} alt="restaurant" />
       <DesicionHeader>{restaurantName}</DesicionHeader>
-      <DesicionInfo>{restaurantDiet}</DesicionInfo>
+      <DesicionInfo>{`${diet}, ${restaurantCuisine}`}</DesicionInfo>
     </DesicionCardContainer>
   );
 }
@@ -46,5 +48,6 @@ export default function Card({
 Card.propTypes = {
   restaurantImg: PropTypes.string,
   restaurantName: PropTypes.string,
-  restaurantDiet: PropTypes.string,
+  restaurantDiet: PropTypes.array,
+  restaurantCuisine: PropTypes.string,
 };
