@@ -25,10 +25,10 @@ const MultiSelectBox = () => {
     { label: "Vegan", value: "3" },
     { label: "Asiatisch", value: "Asiatisch" },
     { label: "Amerikanisch", value: "Amerikanisch" },
-    { label: "Deutsch", value: "6" },
-    { label: "Europäisch", value: "7" },
-    { label: "Lateinamerikanisch", value: "8" },
-    { label: "Afrikanisch", value: "9" },
+    { label: "Deutsch", value: "Deutsch" },
+    { label: "Europäisch", value: "Europäisch" },
+    { label: "Lateinamerikanisch", value: "Lateinamerikanisch" },
+    { label: "Afrikanisch", value: "Afrikanisch" },
   ];
   useEffect(() => {
     // event.prevent.default();
