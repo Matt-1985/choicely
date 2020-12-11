@@ -3,17 +3,14 @@ import MultiSelect from "react-multiple-select-dropdown-lite";
 import { getRestaurants } from "../api/restaurants";
 import "../components/MultiSelect.css";
 import Card from "./Card";
+import DetailCard from "./DetailCard";
 
 //bei der filter auswahl soll die richtige karte angezeigt werden,
 // anfrage der filteroptionen wird an api gesendet und die passenden ergebnisse werden ausgegeben
 
 const MultiSelectBox = () => {
   const [value, setValue] = useState("");
-  // const [rImg, setRImg] = useState("");
-  // const [rName, setRName] = useState("");
-  // const [rDiet, setRDiet] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
-  // const [allRestaurants , setAllRestaurants] = useState()
 
   const handleOnChange = (val) => {
     setValue(val);
@@ -63,11 +60,15 @@ const MultiSelectBox = () => {
         />
       ))}
 
-      {/* <Card
-        restaurantImg={rImg}
-        restaurantName={rName}
-        restaurantDiet={rDiet}
-      /> */}
+      {filteredRestaurants?.map((filteredRestaurant) => (
+        <DetailCard
+          key={filteredRestaurant._id}
+          restaurantImg={filteredRestaurant.img}
+          restaurantName={filteredRestaurant.name}
+          restaurantAddress={filteredRestaurant.address}
+          restaurantContact={filteredRestaurant.contact}
+        />
+      ))}
     </div>
   );
 };
