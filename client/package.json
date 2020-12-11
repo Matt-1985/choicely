@@ -17,6 +17,7 @@
     "eslint": "^7.14.0",
     "eslint-plugin-react": "^7.21.5",
     "react": "^17.0.1",
+    "react-card-flip": "^1.0.11",
     "react-dom": "^17.0.1",
     "react-multiple-select-dropdown-lite": "^1.1.0",
     "react-router-dom": "^5.2.0",

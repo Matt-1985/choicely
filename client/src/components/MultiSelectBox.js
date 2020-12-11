@@ -34,6 +34,7 @@ const MultiSelectBox = () => {
     }
     async function getData() {
       const restaurants = await getRestaurants(value);
+      console.log(restaurants);
       setFilteredRestaurants(restaurants);
     }
     getData();
