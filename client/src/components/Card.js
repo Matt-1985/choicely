@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import restaurant from "../stories/assets/restaurant.png";
+import PropTypes from "prop-types";
 
 const DesicionCardContainer = styled.div`
   margin: 0 10vw;
@@ -29,14 +29,25 @@ const DesicionInfo = styled.p`
   font-size: 14px;
 `;
 
-export default function Card() {
+export default function Card({
+  restaurantImg,
+  restaurantName,
+  restaurantDiet,
+  restaurantCuisine,
+}) {
+  const diet = restaurantDiet.toString();
   return (
     <DesicionCardContainer>
-      <DesicionImage src={restaurant} alt="restaurant" />
-      <DesicionHeader>LOREM IPSUM</DesicionHeader>
-      <DesicionInfo>
-        Est duis labore dolor ut consectetur eu do ex anim tempor.
-      </DesicionInfo>
+      <DesicionImage src={restaurantImg} alt="restaurant" />
+      <DesicionHeader>{restaurantName}</DesicionHeader>
+      <DesicionInfo>{`${diet}, ${restaurantCuisine}`}</DesicionInfo>
     </DesicionCardContainer>
   );
 }
+
+Card.propTypes = {
+  restaurantImg: PropTypes.string,
+  restaurantName: PropTypes.string,
+  restaurantDiet: PropTypes.array,
+  restaurantCuisine: PropTypes.string,
+};

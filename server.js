@@ -3,7 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 
-const { getRandomRestaurant } = require("./lib/restaurantInfo");
+const { getRestaurants } = require("./lib/restaurantInfo");
 const { connect } = require("./lib/database");
 
 const app = express();
@@ -15,18 +15,19 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
-app.get("/api/restaurants/:cuisine", async (req, res) => {
-  const { cuisine } = req.params;
+app.get("/api/restaurants/:cuisines", async (req, res) => {
   try {
-    const value = await getRandomRestaurant(cuisine);
+    const value = await getRestaurants(req.params.cuisines);
     if (!value) {
       res.status(404).send("There is no such a restaurant");
       return;
     }
-    res.send(value);
+    res.json(value);
   } catch (error) {
     console.error(error);
-    res.status(500).send("Internal Server error");
+    res
+      .status(500)
+      .json({ message: "Internal Server error", dsc: error.message });
   }
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });

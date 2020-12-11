@@ -1,6 +1,5 @@
 import styled from "styled-components/macro";
 import React from "react";
-import { PageContainer } from "../components/PageContainer";
 import DetailCard from "../components/DetailCard";
 import NavBar from "../components/NavBar";
 
@@ -15,11 +14,11 @@ const DetailCardContainer = styled.div`
 
 export default function DetailCardScreenLazy() {
   return (
-    <PageContainer>
+    <>
       <DetailCardContainer>
         <DetailCard />
       </DetailCardContainer>
       <NavBar />
-    </PageContainer>
+    </>
   );
 }

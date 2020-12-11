@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import restaurant from "../stories/assets/restaurant.png";
+import PropTypes from "prop-types";
 
 const FinalCardContainer = styled.div`
   margin: 0 10vw;
@@ -29,22 +29,35 @@ const FinalInfo = styled.p`
   font-size: 14px;
 `;
 
-const FinalLink = styled.a`
-  padding: 10px 20px;
-  text-decoration: none;
-  text-align: center;
-`;
+// const FinalLink = styled.a`
+//   padding: 10px 20px;
+//   text-decoration: none;
+//   text-align: center;
+// `;
 
-export default function DetailCard() {
+export default function DetailCard({
+  restaurantImg,
+  restaurantName,
+  restaurantAddress,
+  restaurantContact,
+}) {
   return (
     <FinalCardContainer>
-      <FinalImage src={restaurant} alt="restaurant" />
-      <FinalHeader>LOREM IPSUM</FinalHeader>
+      <FinalImage src={restaurantImg} alt="restaurant" />
+      <FinalHeader>{restaurantName}</FinalHeader>
       <FinalInfo>
-        Est duis labore dolor ut consectetur eu do ex anim tempor.Aliquip culpa
+        {restaurantAddress.street}, {restaurantAddress.zipcode}
       </FinalInfo>
-      <FinalLink href="url">✆</FinalLink>
-      <FinalLink href="url">Lorem Ipsum</FinalLink>
+      <FinalInfo>
+        {restaurantContact.phone}, {restaurantContact.web}
+      </FinalInfo>
     </FinalCardContainer>
   );
 }
+
+DetailCard.propTypes = {
+  restaurantImg: PropTypes.string,
+  restaurantName: PropTypes.string,
+  restaurantAddress: PropTypes.object,
+  restaurantContact: PropTypes.object,
+};
