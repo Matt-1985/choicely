@@ -1,8 +1,9 @@
-// import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
 // import SelectBox from "../components/SelectBox";
-import BackButton from "../components/BackButton";
+import NavBar from "../components/NavBar";
 import MultiSelectBox from "../components/MultiSelectBox";
+import { getRandomRestaurants } from "../api/randomRestaurants";
 
 const SelectBoxContainer = styled.div`
   display: flex;
@@ -14,32 +15,56 @@ const SelectBoxContainer = styled.div`
 `;
 
 export default function SelectBoxScreen() {
-  //   const [select1, setSelect1] = useState(null);
-  //   const [select2, setSelect2] = useState(null);
-  //   const [select3, setSelect3] = useState(null);
+  const [outputMultiSelectBox, setOutputMultiSelectBox] = useState("");
+  const [outputNavBar, setOutputNavBar] = useState("");
+  // const [contentListItems, setContentListItems] = useState("");
+  const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
-  //   const nextPage = (e) => {
-  //     switch (e.target.name) {
-  //       case select1:
-  //         setSelect1(e.target.value);
-  //         break;
-  //       case select2:
-  //         setSelect2(e.target.value);
-  //         break;
-  //       case select3:
-  //         setSelect3(e.target.value);
-  //         break;
-  //       default:
-  //         console.log("test");
-  //     }
-  //   };
+  const [reloadRestaurants, setRefreshRestaurants] = useState(null);
+  const [buttonClick, setButtonClick] = useState("");
+
+  const refreshOnClick = () => {
+    setButtonClick("clicked");
+    setRefreshRestaurants("reload");
+  };
+
+  useEffect(() => {
+    if (!buttonClick) {
+      return;
+    }
+    async function refreshRestaurants() {
+      const newRestaurants = await getRandomRestaurants();
+      setRefreshRestaurants(newRestaurants);
+    }
+    setButtonClick("");
+    refreshRestaurants();
+  }, [reloadRestaurants]);
 
   return (
     <>
       <SelectBoxContainer>
         <MultiSelectBox />
+        {filteredRestaurants?.map((filteredRestaurant) => (
+          <Card
+            key={filteredRestaurant._id}
+            restaurantImg={filteredRestaurant.img}
+            restaurantName={filteredRestaurant.name}
+            restaurantDiet={filteredRestaurant.diet}
+            restaurantCuisine={filteredRestaurant.cuisine}
+          />
+        ))}
+
+        {filteredRestaurants?.map((filteredRestaurant) => (
+          <DetailCard
+            key={filteredRestaurant._id}
+            restaurantImg={filteredRestaurant.img}
+            restaurantName={filteredRestaurant.name}
+            restaurantAddress={filteredRestaurant.address}
+            restaurantContact={filteredRestaurant.contact}
+          />
+        ))}
       </SelectBoxContainer>
-      <BackButton />
+      <NavBar onClick={refreshOnClick} />
     </>
   );
 }

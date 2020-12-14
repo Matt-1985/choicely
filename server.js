@@ -5,6 +5,7 @@ const path = require("path");
 
 const { getRestaurants } = require("./lib/restaurantInfo");
 const { connect } = require("./lib/database");
+const { getRandomRestaurants } = require("./lib/randomRestaurant");
 
 const app = express();
 const port = process.env.PORT || 3013;
@@ -23,6 +24,23 @@ app.get("/api/restaurants/:cuisines", async (req, res) => {
       return;
     }
     res.json(value);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Internal Server error", dsc: error.message });
+  }
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
+app.get("/api/random-restaurants", async (req, res) => {
+  try {
+    const randomRestaurant = await getRandomRestaurants();
+    if (!randomRestaurant) {
+      res.status(404).send("Please try again");
+      return;
+    }
+    res.json(randomRestaurant);
   } catch (error) {
     console.error(error);
     res

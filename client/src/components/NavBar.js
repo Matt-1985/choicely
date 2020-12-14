@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import BackButton from "../stories/assets/back_btn.svg";
 import RefreshButton from "../stories/assets/refresh_btn.svg";
+import PropTypes from "prop-types";
 
 const Navigation = styled.footer`
   border: none;
@@ -20,15 +21,16 @@ const Navigation = styled.footer`
   }
 `;
 
-export default function NavBar() {
+export default function NavBar({ onClick }) {
   return (
     <Navigation>
-      <a href="/">
-        <img src={BackButton} alt="back" />
-      </a>
-      <a href="/">
-        <img src={RefreshButton} alt="back" />
-      </a>
+      <img src={BackButton} alt="back" />
+
+      <img src={RefreshButton} onClick={onClick} alt="back" />
     </Navigation>
   );
 }
+
+NavBar.propTypes = {
+  onClick: PropTypes.func,
+};

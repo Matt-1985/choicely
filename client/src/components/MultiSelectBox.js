@@ -10,7 +10,7 @@ import DetailCard from "./DetailCard";
 
 const MultiSelectBox = () => {
   const [value, setValue] = useState("");
-  const [filteredRestaurants, setFilteredRestaurants] = useState(null);
+  // const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
   const handleOnChange = (val) => {
     setValue(val);
