@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 // import SelectBox from "../components/SelectBox";
 import NavBar from "../components/NavBar";
 import MultiSelectBox from "../components/MultiSelectBox";
-// import { getRandomRestaurants } from "../api/randomRestaurants";
+import { getRandomRestaurants } from "../api/randomRestaurants";
 import { getRestaurants } from "../api/restaurants";
 
 import Card from "../components/Card";
@@ -26,8 +26,8 @@ export default function SelectBoxScreen() {
   // const [contentListItems, setContentListItems] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
 
-  // const [reloadRestaurants, setRefreshRestaurants] = useState(null);
-  // const [buttonClick, setButtonClick] = useState("");
+  const [reloadRestaurants, setRefreshRestaurants] = useState(null);
+  const [buttonClick, setButtonClick] = useState("");
 
   const handleOnChange = (val) => {
     setValue(val);
@@ -45,23 +45,24 @@ export default function SelectBoxScreen() {
     getData();
   }, [value]);
 
-  // const refreshOnClick = () => {
-  //   setButtonClick("clicked");
-  //   setRefreshRestaurants("reload");
-  // };
+  const refreshOnClick = () => {
+    setButtonClick("clicked");
+    setRefreshRestaurants("reload");
+  };
 
-  // useEffect(() => {
-  //   if (!buttonClick) {
-  //     return;
-  //   }
-  //   async function refreshRestaurants() {
-  //     const newRestaurants = await getRandomRestaurants();
-  //     setRefreshRestaurants(newRestaurants);
-  //   }
-  //   setButtonClick("");
-  //   refreshRestaurants();
-  // }, [reloadRestaurants]);
-  console.log(options);
+  useEffect(() => {
+    if (!buttonClick) {
+      return;
+    }
+    async function refreshRestaurants() {
+      const newRestaurants = await getRandomRestaurants();
+      setFilteredRestaurants(newRestaurants);
+    }
+    setButtonClick("");
+    refreshRestaurants();
+    console.log(buttonClick);
+  }, [buttonClick]);
+
   return (
     <>
       <SelectBoxContainer>
@@ -91,7 +92,7 @@ export default function SelectBoxScreen() {
           />
         ))}
       </SelectBoxContainer>
-      <NavBar />
+      <NavBar onClick={refreshOnClick} />
     </>
   );
 }
