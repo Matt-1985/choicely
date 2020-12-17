@@ -4,16 +4,17 @@ import { ButtonStyle, ButtonOutline } from "../GlobalStyle";
 
 const Button = styled.button`
   ${ButtonStyle}
+  background-color: var(--decision-filter-color)
 `;
 
 const Div = styled.div`
   ${ButtonOutline}
 `;
 
-export default function FinalDecisionButton() {
+export default function FilterDecisionButton() {
   return (
     <Button>
-      1-Klick-Decision
+      Filter zum Glück
       <Div />
     </Button>
   );

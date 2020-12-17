@@ -41,6 +41,7 @@ export default function SelectBoxScreen() {
     async function getData() {
       const restaurants = await getRestaurants(value);
       setFilteredRestaurants(restaurants);
+      console.log(restaurants);
     }
     getData();
   }, [value]);
@@ -60,7 +61,6 @@ export default function SelectBoxScreen() {
     }
     setButtonClick("");
     refreshRestaurants();
-    console.log(buttonClick);
   }, [buttonClick]);
 
   return (
