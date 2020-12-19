@@ -1,5 +1,5 @@
-export async function getRestaurants(cuisines) {
-  const response = await fetch(`/api/restaurants/${cuisines}`);
+export async function getRestaurants(values) {
+  const response = await fetch(`/api/restaurants/${values}`);
   if (!response.ok) {
     console.log(response.json());
   }

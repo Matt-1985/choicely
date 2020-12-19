@@ -4,14 +4,16 @@ import PropTypes from "prop-types";
 
 const FinalCardContainer = styled.div`
   margin: 0 10vw;
-  height: 65vh;
-  width: 45vw;
-  border: 1px solid grey;
+  /* height: 65vh;
+  width: 45vw; */
+  border: none;
   display: grid;
   grid-template-rows: auto auto 3fr;
 `;
 
 const FinalImage = styled.img`
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
   height: auto;
   width: 100%;
 `;
@@ -23,7 +25,7 @@ const FinalHeader = styled.h2`
   font-size: 15px;
 `;
 
-const FinalInfo = styled.p`
+const FinalInfo = styled.a`
   text-align: center;
   padding: 10px 20px;
   font-size: 14px;

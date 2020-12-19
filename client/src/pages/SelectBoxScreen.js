@@ -21,11 +21,8 @@ const SelectBoxContainer = styled.div`
 
 export default function SelectBoxScreen() {
   const [value, setValue] = useState("");
-  // const [outputMultiSelectBox, setOutputMultiSelectBox] = useState("");
-  // const [outputNavBar, setOutputNavBar] = useState("");
-  // const [contentListItems, setContentListItems] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
-
+  const [dietFilter, setDietFilter] = useState("");
   const [reloadRestaurants, setRefreshRestaurants] = useState(null);
   const [buttonClick, setButtonClick] = useState("");
 
@@ -33,7 +30,18 @@ export default function SelectBoxScreen() {
     setValue(val);
   };
 
+  const refreshOnClick = () => {
+    setButtonClick("clicked");
+    setRefreshRestaurants("reload");
+    // let tempValue = value;
+    // setValue("test");
+    // console.log(value);
+    // setValue(tempValue);
+    // console.log(value);
+  };
+
   useEffect(() => {
+    console.log("useEffect:" + value);
     // event.prevent.default();
     if (!value) {
       return;
@@ -41,22 +49,16 @@ export default function SelectBoxScreen() {
     async function getData() {
       const restaurants = await getRestaurants(value);
       setFilteredRestaurants(restaurants);
-      console.log(restaurants);
     }
     getData();
   }, [value]);
-
-  const refreshOnClick = () => {
-    setButtonClick("clicked");
-    setRefreshRestaurants("reload");
-  };
 
   useEffect(() => {
     if (!buttonClick) {
       return;
     }
     async function refreshRestaurants() {
-      const newRestaurants = await getRandomRestaurants();
+      const newRestaurants = await getRestaurants(value);
       setFilteredRestaurants(newRestaurants);
     }
     setButtonClick("");
@@ -65,13 +67,14 @@ export default function SelectBoxScreen() {
 
   return (
     <>
+      <MultiSelectBox
+        onChange={handleOnChange}
+        options={options}
+        placeholder="Wähle aus"
+        className="multiselect"
+      />
+
       <SelectBoxContainer>
-        <MultiSelectBox
-          onChange={handleOnChange}
-          options={options}
-          placeholder="Wähle aus"
-          className="multiselect"
-        />
         {filteredRestaurants?.map((filteredRestaurant) => (
           <Card
             key={filteredRestaurant._id}
@@ -92,6 +95,7 @@ export default function SelectBoxScreen() {
           />
         ))}
       </SelectBoxContainer>
+
       <NavBar onClick={refreshOnClick} />
     </>
   );

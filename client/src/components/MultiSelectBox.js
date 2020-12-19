@@ -1,15 +1,23 @@
 import MultiSelect from "react-multiple-select-dropdown-lite";
 import "../components/MultiSelect.css";
-
+import styled from "styled-components/macro";
 import PropTypes from "prop-types";
+
+const H4 = styled.h4`
+  text-align: center;
+`;
 
 export default function MultiSelectBox({ onChange, options }) {
   return (
     <div className="app">
       <div className="preview-values">
-        <h4>Der Filter zum Glück</h4>
+        <H4>Der Filter zum Glück</H4>
       </div>
-      <MultiSelect onChange={onChange} options={options} />
+      <MultiSelect
+        onChange={onChange}
+        options={options}
+        className="multiselect"
+      />
     </div>
   );
 }

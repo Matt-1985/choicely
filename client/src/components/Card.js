@@ -6,12 +6,14 @@ const DesicionCardContainer = styled.div`
   margin: 0 10vw;
   /* height: 45vh;
   width: 15vw; */
-  border: 1px solid grey;
+  border: none;
   display: grid;
   grid-template-rows: auto auto 3fr;
 `;
 
 const DesicionImage = styled.img`
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
   height: auto;
   width: 100%;
 `;

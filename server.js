@@ -16,9 +16,9 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
-app.get("/api/restaurants/:cuisines", async (req, res) => {
+app.get("/api/restaurants/:values", async (req, res) => {
   try {
-    const value = await getRestaurants(req.params.cuisines);
+    const value = await getRestaurants(req.params.values);
     if (!value) {
       res.status(404).send("There is no such a restaurant");
       return;
