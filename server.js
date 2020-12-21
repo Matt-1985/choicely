@@ -5,6 +5,7 @@ const path = require("path");
 
 const { getRestaurants } = require("./lib/restaurantInfo");
 const { connect } = require("./lib/database");
+const { getRandomRestaurants } = require("./lib/randomRestaurant");
 
 const app = express();
 const port = process.env.PORT || 3013;
@@ -15,9 +16,9 @@ app.use(
   express.static(path.join(__dirname, "client/storybook-static"))
 );
 
-app.get("/api/restaurants/:cuisines", async (req, res) => {
+app.get("/api/restaurants/:values", async (req, res) => {
   try {
-    const value = await getRestaurants(req.params.cuisines);
+    const value = await getRestaurants(req.params.values);
     if (!value) {
       res.status(404).send("There is no such a restaurant");
       return;
@@ -32,10 +33,28 @@ app.get("/api/restaurants/:cuisines", async (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
+app.get("/api/random-restaurants", async (res) => {
+  try {
+    const randomRestaurant = await getRandomRestaurants();
+    if (!randomRestaurant) {
+      res.status(404).send("Please try again");
+      return;
+    }
+    res.json(randomRestaurant);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ message: "Internal Server error", dsc: error.message });
+  }
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
+
 // Handle React routing, return all requests to React app
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  console.log(req);
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 async function run() {
   console.log("Connecting to database...");

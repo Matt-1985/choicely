@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components/macro";
 import BackButton from "../components/BackButton";
 import FinalDesicionButton from "../components/FinalDecisionButton";
+import FilterDesicionButton from "../components/FilterDecisionButton";
+
 import { Link } from "react-router-dom";
 
 const Div = styled.div`
@@ -21,7 +23,7 @@ export default function DesicionPage() {
           <FinalDesicionButton />
         </Link>
         <Link to="/select" label="select">
-          <FinalDesicionButton />
+          <FilterDesicionButton />
         </Link>
       </Div>
       <BackButton />

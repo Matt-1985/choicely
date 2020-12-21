@@ -1,3 +1,8 @@
+.multiselect {
+  display: grid;
+  grid-area: header;
+}
+
 .msl-flx {
   display: inline-flex;
   align-items: center;
