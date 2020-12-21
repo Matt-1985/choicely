@@ -26,6 +26,8 @@ export default function SelectBoxScreen() {
     setValue(val);
   };
 
+  console.log(reloadRestaurants);
+
   const refreshOnClick = () => {
     setButtonClick("clicked");
     setReloadRestaurants("reload");
