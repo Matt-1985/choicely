@@ -51,9 +51,10 @@ app.get("/api/random-restaurants", async (res) => {
 });
 
 // Handle React routing, return all requests to React app
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
+app.get("*", (req, res) => {
+  console.log(req);
+  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+});
 
 async function run() {
   console.log("Connecting to database...");
