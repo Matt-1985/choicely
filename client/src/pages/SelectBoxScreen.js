@@ -19,7 +19,7 @@ const SelectBoxContainer = styled.div`
 export default function SelectBoxScreen() {
   const [value, setValue] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
-  const [setReloadRestaurants] = useState(null);
+  const [reloadRestaurants, setReloadRestaurants] = useState(null);
   const [buttonClick, setButtonClick] = useState("");
 
   const handleOnChange = (val) => {
@@ -50,9 +50,9 @@ export default function SelectBoxScreen() {
       const newRestaurants = await getRestaurants(value);
       setFilteredRestaurants(newRestaurants);
     }
-    setButtonClick("");
+    setButtonClick(null);
     refreshRestaurants();
-  }, [buttonClick]);
+  }, [buttonClick, value]);
 
   return (
     <>

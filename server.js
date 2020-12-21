@@ -33,7 +33,7 @@ app.get("/api/restaurants/:values", async (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-app.get("/api/random-restaurants", async (req, res) => {
+app.get("/api/random-restaurants", async (res) => {
   try {
     const randomRestaurant = await getRandomRestaurants();
     if (!randomRestaurant) {
