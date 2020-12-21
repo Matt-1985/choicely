@@ -6,6 +6,7 @@ import { getRestaurants } from "../api/restaurants";
 import Card from "../components/Card";
 import DetailCard from "../components/DetailCard";
 import { options } from "../components/options";
+import Background from "../components/Background";
 
 const SelectBoxContainer = styled.div`
   display: flex;
