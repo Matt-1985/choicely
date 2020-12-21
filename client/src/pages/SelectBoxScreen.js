@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components/macro";
-// import SelectBox from "../components/SelectBox";
 import NavBar from "../components/NavBar";
 import MultiSelectBox from "../components/MultiSelectBox";
-import { getRandomRestaurants } from "../api/randomRestaurants";
 import { getRestaurants } from "../api/restaurants";
-
 import Card from "../components/Card";
 import DetailCard from "../components/DetailCard";
 import { options } from "../components/options";
@@ -22,8 +19,7 @@ const SelectBoxContainer = styled.div`
 export default function SelectBoxScreen() {
   const [value, setValue] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
-  const [dietFilter, setDietFilter] = useState("");
-  const [reloadRestaurants, setRefreshRestaurants] = useState(null);
+  const [setReloadRestaurants] = useState(null);
   const [buttonClick, setButtonClick] = useState("");
 
   const handleOnChange = (val) => {
@@ -32,17 +28,10 @@ export default function SelectBoxScreen() {
 
   const refreshOnClick = () => {
     setButtonClick("clicked");
-    setRefreshRestaurants("reload");
-    // let tempValue = value;
-    // setValue("test");
-    // console.log(value);
-    // setValue(tempValue);
-    // console.log(value);
+    setReloadRestaurants("reload");
   };
 
   useEffect(() => {
-    console.log("useEffect:" + value);
-    // event.prevent.default();
     if (!value) {
       return;
     }
