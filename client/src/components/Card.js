@@ -3,6 +3,8 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 
 const DesicionCardContainer = styled.div`
+  /* position: absolute;
+  z-index: 3; */
   margin: 0 10vw;
   /* height: 45vh;
   width: 15vw; */

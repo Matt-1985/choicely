@@ -3,18 +3,21 @@ import styled from "styled-components/macro";
 import NavBar from "../components/NavBar";
 import MultiSelectBox from "../components/MultiSelectBox";
 import { getRestaurants } from "../api/restaurants";
-import Card from "../components/Card";
-import DetailCard from "../components/DetailCard";
+import FlipCard from "../components/FlipCard";
+// import Card from "../components/Card";
+// import DetailCard from "../components/DetailCard";
 import { options } from "../components/options";
-import Background from "../components/Background";
+// import Background from "../components/Background";
 
 const SelectBoxContainer = styled.div`
+  /* position: relative;
+  z-index: 1; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-area: content;
   padding: 15%;
-  gap: 35px;
+  gap: 100px;
 `;
 
 export default function SelectBoxScreen() {
@@ -65,27 +68,27 @@ export default function SelectBoxScreen() {
         placeholder="Wähle aus"
         className="multiselect"
       />
-
       <SelectBoxContainer>
         {filteredRestaurants?.map((filteredRestaurant) => (
-          <Card
+          <FlipCard
             key={filteredRestaurant._id}
             restaurantImg={filteredRestaurant.img}
             restaurantName={filteredRestaurant.name}
             restaurantDiet={filteredRestaurant.diet}
             restaurantCuisine={filteredRestaurant.cuisine}
-          />
-        ))}
-
-        {filteredRestaurants?.map((filteredRestaurant) => (
-          <DetailCard
-            key={filteredRestaurant._id}
-            restaurantImg={filteredRestaurant.img}
-            restaurantName={filteredRestaurant.name}
             restaurantAddress={filteredRestaurant.address}
             restaurantContact={filteredRestaurant.contact}
           />
         ))}
+
+        {/* {filteredRestaurants?.map((filteredRestaurant) => (
+          <DetailCard
+            key={filteredRestaurant._id}
+            restaurantImg={filteredRestaurant.img}
+            restaurantName={filteredRestaurant.name}
+            
+          />
+        ))} */}
       </SelectBoxContainer>
 
       <NavBar onClick={refreshOnClick} />

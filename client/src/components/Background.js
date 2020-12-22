@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const BackgroundContainer = styled.div`
+  position: absolute;
+  z-index: 2;
   width: 70%;
   height: 80%;
   display: grid;
@@ -10,7 +12,6 @@ const BackgroundContainer = styled.div`
 `;
 
 const BackgroundDiv = styled.div`
-  position: relative;
   width: 200px;
   height: 500px;
   border: none;
@@ -28,7 +29,7 @@ const Frame = styled.div`
   border: 1px solid #607a94;
   border-radius: 12px;
   opacity: 3;
-  z-index: 1;
+  z-index: auto;
   display: flex;
 `;
 
