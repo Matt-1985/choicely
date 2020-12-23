@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 const FlipCardContainer = styled.div`
   /* position: absolute;
   z-index: 3; */
-  margin: 0 10vw;
   background-color: transparent;
-  height: 200px;
+  margin: 0 10vw;
+  height: 300px;
   width: 300px;
-  border: 1px solid #f1f1f1;
+  /* border: 1px solid #f1f1f1; */
   border-radius: 12px;
   display: grid;
   grid-template-rows: auto auto 3fr;
@@ -47,8 +47,9 @@ const FlipCardBack = styled.div`
 const FlipImage = styled.img`
   border-top-right-radius: 12px;
   border-top-left-radius: 12px;
-  height: 100%;
+  height: 150px;
   width: 100%;
+  object-fit: cover;
 `;
 
 const FlipHeader = styled.h2`
@@ -58,7 +59,7 @@ const FlipHeader = styled.h2`
   font-size: 15px;
 `;
 
-const FlipInfo = styled.p`
+const FlipInfo = styled.a`
   text-align: center;
   padding: 10px 20px;
   font-size: 14px;
@@ -82,9 +83,12 @@ export default function FlipCard({
           <FlipInfo>{`${diet}, ${restaurantCuisine}`}</FlipInfo>
         </FlipCardFront>
         <FlipCardBack>
+          <FlipImage src={restaurantImg} alt="restaurant" />
           <FlipHeader>{restaurantName}</FlipHeader>
           <FlipInfo>
             {restaurantAddress.street}, {restaurantAddress.zipcode}
+          </FlipInfo>
+          <FlipInfo>
             {restaurantContact.phone}, {restaurantContact.web}
           </FlipInfo>
         </FlipCardBack>
