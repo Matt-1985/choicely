@@ -3,6 +3,7 @@ import GlobalStyle from "./GlobalStyle";
 import SplashPage from "./pages/SplashPage";
 import StartPage from "./pages/StartPage";
 import DesicionPage from "./pages/DesicionPage";
+import OneClickDesicionScreen from "./pages/OneClickDesicionScreen";
 import SelectBoxScreen from "./pages/SelectBoxScreen";
 import DesicionScreenLazy from "./pages/DesicionScreenLazy";
 import DetailCardScreenLazy from "./pages/DetailCardScreenLazy";
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route path="/desicion">
             <DesicionPage />
+          </Route>
+          <Route path="/random">
+            <OneClickDesicionScreen />
           </Route>
           <Route path="/select">
             <SelectBoxScreen />

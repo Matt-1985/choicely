@@ -19,7 +19,7 @@ export default function DesicionPage() {
   return (
     <>
       <Div>
-        <Link to="/choice" label="choice">
+        <Link to="/random" label="random">
           <FinalDesicionButton />
         </Link>
         <Link to="/select" label="select">

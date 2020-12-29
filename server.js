@@ -33,13 +33,14 @@ app.get("/api/restaurants/:values", async (req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
-app.get("/api/random-restaurants", async (res) => {
+app.get("/api/random-restaurants", async (req, res) => {
   try {
     const randomRestaurant = await getRandomRestaurants();
     if (!randomRestaurant) {
       res.status(404).send("Please try again");
       return;
     }
+    console.log(randomRestaurant);
     res.json(randomRestaurant);
   } catch (error) {
     console.error(error);
