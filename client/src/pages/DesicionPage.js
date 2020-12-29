@@ -12,7 +12,6 @@ const Div = styled.div`
   justify-content: center;
   grid-area: content;
   margin-bottom: 15vh;
-  gap: 8vh;
 `;
 
 export default function DesicionPage() {

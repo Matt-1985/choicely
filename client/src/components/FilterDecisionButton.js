@@ -4,7 +4,7 @@ import { ButtonStyle, ButtonOutline } from "../GlobalStyle";
 
 const Button = styled.button`
   ${ButtonStyle}
-  background-color: var(--decision-filter-color)
+  background-color: var(--decision-filter-color);
 `;
 
 const Div = styled.div`

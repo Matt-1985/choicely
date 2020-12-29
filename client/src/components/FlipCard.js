@@ -59,7 +59,7 @@ const FlipHeader = styled.h2`
   font-size: 15px;
 `;
 
-const FlipInfo = styled.a`
+const FlipInfo = styled.div`
   text-align: center;
   padding: 10px 20px;
   font-size: 14px;
@@ -74,6 +74,14 @@ export default function FlipCard({
   restaurantContact,
 }) {
   const diet = restaurantDiet.toString();
+  const hrefTel = "tel:" + restaurantContact.phone;
+  const googleLink =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    restaurantName +
+    "," +
+    restaurantAddress.street +
+    "," +
+    restaurantAddress.zipcode;
   return (
     <FlipCardContainer>
       <FlipCardInner>
@@ -86,10 +94,15 @@ export default function FlipCard({
           <FlipImage src={restaurantImg} alt="restaurant" />
           <FlipHeader>{restaurantName}</FlipHeader>
           <FlipInfo>
-            {restaurantAddress.street}, {restaurantAddress.zipcode}
+            <a href={googleLink} rel="noreferrer" target="_blank">
+              {restaurantAddress.street}, {restaurantAddress.zipcode}
+            </a>
           </FlipInfo>
           <FlipInfo>
-            {restaurantContact.phone}, {restaurantContact.web}
+            <a href={hrefTel}>{restaurantContact.phone}</a>,{" "}
+            <a href={restaurantContact.web} rel="noreferrer" target="_blank">
+              {restaurantContact.web}
+            </a>
           </FlipInfo>
         </FlipCardBack>
       </FlipCardInner>

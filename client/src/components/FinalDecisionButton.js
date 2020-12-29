@@ -3,7 +3,8 @@ import styled from "styled-components/macro";
 import { ButtonStyle, ButtonOutline } from "../GlobalStyle";
 
 const Button = styled.button`
-  ${ButtonStyle}
+  ${ButtonStyle};
+  margin-bottom: 50px;
 `;
 
 const Div = styled.div`
