@@ -6,12 +6,45 @@ import FlipCard from "../components/FlipCard";
 const BoxContainer = styled.div`
   /* position: relative;
   z-index: 1; */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-area: content;
   padding: 15%;
   gap: 100px;
+`;
+
+const BackgroundContainer = styled.div`
+  /* position: absolute;
+  z-index: 1; */
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-row: 1;
+  grid-column: 1;
+`;
+
+const BackgroundDiv = styled.div`
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--decision-filter-color);
+`;
+
+const Frame = styled.div`
+  position: relative;
+  right: 6px;
+  left: -6px;
+  top: 6px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #607a94;
+  border-radius: 12px;
+  /* opacity: 3; */
+  /* z-index: auto;
+  display: flex; */
 `;
 
 export default function ListItems({ listOfItems, changeButtonClick }) {
@@ -38,17 +71,23 @@ export default function ListItems({ listOfItems, changeButtonClick }) {
   return (
     <>
       <BoxContainer>
-        {listOfItems?.map((item) => (
-          <FlipCard
-            key={item._id}
-            restaurantImg={item.img}
-            restaurantName={item.name}
-            restaurantDiet={item.diet}
-            restaurantCuisine={item.cuisine}
-            restaurantAddress={item.address}
-            restaurantContact={item.contact}
-          />
-        ))}
+        <BackgroundContainer>
+          <BackgroundDiv>
+            <Frame>
+              {listOfItems?.map((item) => (
+                <FlipCard
+                  key={item._id}
+                  restaurantImg={item.img}
+                  restaurantName={item.name}
+                  restaurantDiet={item.diet}
+                  restaurantCuisine={item.cuisine}
+                  restaurantAddress={item.address}
+                  restaurantContact={item.contact}
+                />
+              ))}
+            </Frame>
+          </BackgroundDiv>
+        </BackgroundContainer>
       </BoxContainer>
       <NavBar onClick={changeButtonClick} />
     </>
@@ -58,4 +97,5 @@ export default function ListItems({ listOfItems, changeButtonClick }) {
 ListItems.propTypes = {
   listOfItems: PropTypes.array,
   changeButtonClick: PropTypes.func,
+  style: PropTypes.string,
 };

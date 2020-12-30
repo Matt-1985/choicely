@@ -37,7 +37,7 @@ export default function Background() {
   return (
     <BackgroundContainer>
       <BackgroundDiv>
-        <Frame></Frame>
+        <Frame>asd</Frame>
       </BackgroundDiv>
     </BackgroundContainer>
   );

@@ -6,7 +6,7 @@ const FlipCardContainer = styled.div`
   /* position: relative; */
   /* z-index: 100; */
   background-color: transparent;
-  margin: 0 10vw;
+  margin: 10vw 10vw;
   height: 300px;
   width: 300px;
   /* border: 1px solid #f1f1f1; */
