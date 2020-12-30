@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const BackgroundContainer = styled.div`
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   width: 70%;
   height: 80%;
   display: grid;

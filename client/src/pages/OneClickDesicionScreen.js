@@ -11,27 +11,6 @@ export default function OneClickDesicionScreen() {
     setButtonClick(buttonClick + 1);
   };
 
-  //   useEffect(() => {
-  //     if (!randomRestaurants) {
-  //       return;
-  //     }
-  //     async function randomlyRestaurants() {
-  //       const newRestaurants = await getRandomRestaurants();
-  //       setRandomRestaurants(newRestaurants);
-  //     }
-  //   }, [randomRestaurants]);
-
-  //   useEffect(() => {
-  //     if (!buttonClick) {
-  //       return;
-  //     }
-  //     async function refreshRestaurants() {
-  //       const newRestaurants = await getRandomRestaurants();
-  //       setFilteredRestaurants(newRestaurants);
-  //     }
-  //     setButtonClick(null);
-  //     refreshRestaurants();
-  //   }, [buttonClick]);
   useEffect(() => {
     async function getData() {
       const restaurants = await getRandomRestaurants();
@@ -43,6 +22,7 @@ export default function OneClickDesicionScreen() {
   return (
     <>
       <ListItems listOfItems={randomRestaurants} />
+
       <NavBar onClick={changeButtonClick} />
     </>
   );
