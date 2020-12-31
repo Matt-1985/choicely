@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import NavBar from "../components/NavBar";
 import FlipCard from "../components/FlipCard";
+// import SelectBoxScreen from "../pages/SelectBoxScreen";
 
 const BoxContainer = styled.div`
   /* position: relative;
@@ -30,7 +31,10 @@ const BackgroundDiv = styled.div`
   height: 100%;
   border: none;
   border-radius: 12px;
-  background-color: var(--decision-filter-color);
+  background-color: ${(props) =>
+    props.background
+      ? "var(--decision-1-color)"
+      : "var(--decision-filter-color)"};
 `;
 
 const Frame = styled.div`
@@ -47,7 +51,11 @@ const Frame = styled.div`
   display: flex; */
 `;
 
-export default function ListItems({ listOfItems, changeButtonClick }) {
+export default function ListItems({
+  listOfItems,
+  changeButtonClick,
+  background,
+}) {
   //   const [reloadRestaurants, setReloadRestaurants] = useState(null);
   //   const [buttonClick, setButtonClick] = useState("");
 
@@ -72,7 +80,7 @@ export default function ListItems({ listOfItems, changeButtonClick }) {
     <>
       <BoxContainer>
         <BackgroundContainer>
-          <BackgroundDiv>
+          <BackgroundDiv background={background}>
             <Frame>
               {listOfItems?.map((item) => (
                 <FlipCard
@@ -98,4 +106,5 @@ ListItems.propTypes = {
   listOfItems: PropTypes.array,
   changeButtonClick: PropTypes.func,
   style: PropTypes.string,
+  background: PropTypes.bool,
 };
