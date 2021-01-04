@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import NavBar from "../components/NavBar";
 import FlipCard from "../components/FlipCard";
-// import SelectBoxScreen from "../pages/SelectBoxScreen";
 
 const BoxContainer = styled.div`
   /* position: relative;
@@ -12,7 +11,8 @@ const BoxContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  padding: 15%;
+  padding-top: 15%;
+  margin: 0 15%;
   gap: 100px;
 `;
 
@@ -55,7 +55,29 @@ export default function ListItems({
   listOfItems,
   changeButtonClick,
   background,
+  goOnePageBack,
 }) {
+  let showListItems = "";
+
+  if (listOfItems != null) {
+    showListItems = (
+      <BackgroundDiv background={background}>
+        <Frame>
+          {listOfItems?.map((item) => (
+            <FlipCard
+              key={item._id}
+              restaurantImg={item.img}
+              restaurantName={item.name}
+              restaurantDiet={item.diet}
+              restaurantCuisine={item.cuisine}
+              restaurantAddress={item.address}
+              restaurantContact={item.contact}
+            />
+          ))}
+        </Frame>
+      </BackgroundDiv>
+    );
+  }
   //   const [reloadRestaurants, setReloadRestaurants] = useState(null);
   //   const [buttonClick, setButtonClick] = useState("");
 
@@ -79,25 +101,9 @@ export default function ListItems({
   return (
     <>
       <BoxContainer>
-        <BackgroundContainer>
-          <BackgroundDiv background={background}>
-            <Frame>
-              {listOfItems?.map((item) => (
-                <FlipCard
-                  key={item._id}
-                  restaurantImg={item.img}
-                  restaurantName={item.name}
-                  restaurantDiet={item.diet}
-                  restaurantCuisine={item.cuisine}
-                  restaurantAddress={item.address}
-                  restaurantContact={item.contact}
-                />
-              ))}
-            </Frame>
-          </BackgroundDiv>
-        </BackgroundContainer>
+        <BackgroundContainer>{showListItems}</BackgroundContainer>
       </BoxContainer>
-      <NavBar onClick={changeButtonClick} />
+      <NavBar onClick={changeButtonClick} goBack={goOnePageBack} />
     </>
   );
 }
@@ -107,4 +113,5 @@ ListItems.propTypes = {
   changeButtonClick: PropTypes.func,
   style: PropTypes.string,
   background: PropTypes.bool,
+  goOnePageBack: PropTypes.func,
 };

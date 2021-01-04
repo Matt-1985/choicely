@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 import BackButton from "../stories/assets/back_btn.svg";
 import RefreshButton from "../stories/assets/refresh_btn.svg";
 import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 
 const Navigation = styled.footer`
   border: none;
@@ -22,9 +23,11 @@ const Navigation = styled.footer`
 `;
 
 export default function NavBar({ onClick }) {
+  const history = useHistory();
+
   return (
     <Navigation>
-      <img src={BackButton} alt="back" />
+      <img src={BackButton} onClick={() => history.goBack()} alt="back" />
 
       <img src={RefreshButton} onClick={onClick} alt="back" />
     </Navigation>

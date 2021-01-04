@@ -4,6 +4,7 @@ import { getRestaurants } from "../api/restaurants";
 import { options } from "../components/options";
 import ListItems from "../components/ListItems";
 import NavBar from "../components/NavBar";
+// import { useHistory } from "react-router-dom";
 
 export default function SelectBoxScreen() {
   const [value, setValue] = useState("");
@@ -17,6 +18,8 @@ export default function SelectBoxScreen() {
   const changeButtonClick = () => {
     setRefresh(refresh + 1);
   };
+
+  // const history = useHistory(() => history.goBack());
 
   useEffect(() => {
     if (!value) {
