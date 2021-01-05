@@ -1,5 +1,5 @@
 import React from "react";
-import refresh_btn from "../stories/assets/refresh_btn.svg";
+import refresh_btn from "../assets/refresh_btn.svg";
 import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 

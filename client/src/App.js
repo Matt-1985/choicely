@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import GlobalStyle from "./GlobalStyle";
 import SplashPage from "./pages/SplashPage";
 import StartPage from "./pages/StartPage";
-import DesicionPage from "./pages/DesicionPage";
-import OneClickDesicionScreen from "./pages/OneClickDesicionScreen";
-import SelectBoxScreen from "./pages/SelectBoxScreen";
-import DesicionScreenLazy from "./pages/DesicionScreenLazy";
-import DetailCardScreenLazy from "./pages/DetailCardScreenLazy";
+import ChoosingPage from "./pages/ChoosingPage";
+import RoulettePage from "./pages/RoulettePage";
+import FilterPage from "./pages/FilterPage";
 import { PageContainer } from "./components/PageContainer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -26,19 +24,13 @@ function App() {
             {page ? <SplashPage /> : <StartPage />}
           </Route>
           <Route path="/desicion">
-            <DesicionPage />
+            <ChoosingPage />
           </Route>
           <Route path="/random">
-            <OneClickDesicionScreen />
+            <RoulettePage />
           </Route>
           <Route path="/select">
-            <SelectBoxScreen />
-          </Route>
-          <Route path="/choice">
-            <DesicionScreenLazy />
-          </Route>
-          <Route path="/detaildesicion">
-            <DetailCardScreenLazy />
+            <FilterPage />
           </Route>
         </Switch>
       </PageContainer>

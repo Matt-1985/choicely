@@ -1,6 +1,6 @@
 import { createGlobalStyle, css } from "styled-components/macro";
-import AtamiRegular from "./stories/assets/fonts/AtamiRegular.otf";
-import AtamiBold from "./stories/assets/fonts/AtamiBold.otf";
+import AtamiRegular from "../src/assets/fonts/AtamiRegular.otf";
+import AtamiBold from "../src/assets/fonts/AtamiBold.otf";
 
 const GlobalStyle = createGlobalStyle`
  *, *::after, *::before {
@@ -58,10 +58,19 @@ font-family: "AtamiBold";
 font-size: 23;
 
 }
+
+a {
+  text-decoration: none;
+  color: var(--guidance-color);
+  :hover {
+    color: var(--primary-color);
+  }
+}
  
 `;
 
 export const ButtonStyle = css`
+  font-size: 18px;
   position: relative;
   width: 200px;
   height: 100px;
@@ -69,6 +78,7 @@ export const ButtonStyle = css`
   border-radius: 12px;
   background-color: var(--decision-1-color);
   color: #607a94;
+  font-family: "AtamiRegular";
   :active {
     opacity: 0.6;
   }
@@ -81,7 +91,7 @@ export const ButtonOutline = css`
   top: 6px;
   width: 200px;
   height: 100px;
-  border: 1px solid #607a94;
+  border: 2.5px solid #607a94;
   border-radius: 12px;
   opacity: 3;
   z-index: 1;

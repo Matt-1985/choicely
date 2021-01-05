@@ -1,21 +1,23 @@
-/* .multiselect {
-  display: grid;
-  grid-area: header;
-} */
-
 .msl-flx {
   display: inline-flex;
   align-items: center;
 }
 .msl-vars {
   --menu-max-height: 400px;
+  --input-width: 300px;
   --font-size: 16px;
-  --border-radius: 7px;
+  --border-radius: 12px;
   --transition: 200ms;
-  --menu-shadow: 1px 1px 5px 0px grey;
+  --active-menu-shadow: 1px 1px 5px 0px grey;
   --option-bg-hover: #e9e9e9;
+  --line-height: 1.4;
+}
+.msl-wrp * {
+  line-height: var(--line-height);
 }
 .msl-wrp {
+  width: var(--input-width);
+  outline: none;
   position: relative;
   border-radius: var(--border-radius);
 }
@@ -32,23 +34,38 @@
   outline: none;
   cursor: text;
 }
-.msl:not(.msl-active):hover {
+.msl:not(.msl-active, .msl-active-up):hover {
   border-color: #505050;
 }
 .msl-active {
-  background-color: #fff;
-  border-color: transparent;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 .msl-active,
-.msl-active ~ .msl-options {
-  box-shadow: var(--menu-shadow);
-  z-index: 999;
+.msl-active-up {
+  background-color: #fff;
+  box-shadow: var(--active-menu-shadow);
+  z-index: 9999;
+  border-color: transparent;
+}
+.msl-active-up {
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 .msl-active ~ .msl-options {
   -webkit-clip-path: inset(0 -10px -10px -10px);
   clip-path: inset(0 -10px -10px -10px);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+.msl-active-up ~ .msl-options,
+.msl-active ~ .msl-options {
+  z-index: 9999;
+  box-shadow: var(--active-menu-shadow);
   max-height: var(--menu-max-height);
+}
+.msl-active-up ~ .msl-options {
+  bottom: 99%;
+  -webkit-clip-path: inset(-10px -10px 0 -10px);
+  clip-path: inset(-10px -10px 0 -10px);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 .msl-input,
 .msl-input-wrp {
@@ -58,12 +75,11 @@
 .msl-input {
   outline: none;
   margin: 5px;
-  line-height: 1;
   padding: 3px;
   font-size: var(--font-size);
 }
 .msl-input:before {
-  line-height: 1;
+  line-height: var(--line-height);
   color: #929292;
 }
 .msl-input[data-placeholder]:not([data-placeholder=""]):empty:before {
@@ -95,10 +111,11 @@
 .msl-options {
   position: absolute;
   width: 100%;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
   background: #fff;
   max-height: 0;
   overflow: auto;
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+  scrollbar-width: thin;
 }
 .msl-options::-webkit-scrollbar {
   width: 8px;
@@ -121,13 +138,14 @@
   cursor: pointer;
   margin: 4px 6px;
   line-break: anywhere;
-  line-height: 1.2;
+  line-height: var(--line-height);
   outline: none;
   white-space: break-spaces;
   transition: background 0.2s;
 }
 .msl-btn:focus-visible,
-.msl-option:focus-visible {
+.msl-option:focus-visible,
+.msl-wrp:focus-visible {
   outline: 2px solid #07f;
 }
 .msl-grp-title {
@@ -169,7 +187,6 @@
 .msl-clear-btn {
   width: 25px;
   height: 25px;
-  transition: transform var(--transition);
 }
 .msl-clear-btn .msl-close-icn {
   transform: scale(0.7);

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
-import BackButton from "../stories/assets/back_btn.svg";
-import RefreshButton from "../stories/assets/refresh_btn.svg";
+import BackButton from "../assets/back_btn.svg";
+import RefreshButton from "../assets/refresh_btn.svg";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 

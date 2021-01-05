@@ -11,10 +11,10 @@ const Div = styled.div`
   ${ButtonOutline}
 `;
 
-export default function FinalDecisionButton() {
+export default function RouletteButton() {
   return (
     <Button>
-      1-Klick-Decision
+      Schnellauswahl
       <Div />
     </Button>
   );

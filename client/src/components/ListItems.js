@@ -4,9 +4,6 @@ import NavBar from "../components/NavBar";
 import FlipCard from "../components/FlipCard";
 
 const BoxContainer = styled.div`
-  /* position: relative;
-  z-index: 1; */
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,8 +14,7 @@ const BoxContainer = styled.div`
 `;
 
 const BackgroundContainer = styled.div`
-  /* position: absolute;
-  z-index: 1; */
+  margin: 20px 0;
   width: 100%;
   height: 100%;
   display: grid;
@@ -28,7 +24,7 @@ const BackgroundContainer = styled.div`
 
 const BackgroundDiv = styled.div`
   width: 100%;
-  height: 100%;
+  height: 92%;
   border: none;
   border-radius: 12px;
   background-color: ${(props) =>
@@ -46,9 +42,6 @@ const Frame = styled.div`
   height: 100%;
   border: 3px solid #607a94;
   border-radius: 12px;
-  /* opacity: 3; */
-  /* z-index: auto;
-  display: flex; */
 `;
 
 export default function ListItems({
@@ -78,25 +71,6 @@ export default function ListItems({
       </BackgroundDiv>
     );
   }
-  //   const [reloadRestaurants, setReloadRestaurants] = useState(null);
-  //   const [buttonClick, setButtonClick] = useState("");
-
-  //   const refreshOnClick = () => {
-  //     setButtonClick("clicked");
-  //     setReloadRestaurants("reload");
-  //   };
-
-  //   useEffect(() => {
-  //     if (!buttonClick) {
-  //       return;
-  //     }
-  //     async function refreshRestaurants() {
-  //       const newRestaurants = await getRestaurants(value);
-  //       setFilteredRestaurants(newRestaurants);
-  //     }
-  //     setButtonClick(null);
-  //     refreshRestaurants();
-  //   }, [buttonClick, value]);
 
   return (
     <>

@@ -1,17 +1,7 @@
 import React from "react";
-import back_btn from "../stories/assets/back_btn.svg";
+import back_btn from "../assets/back_btn.svg";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
-
-// const icons = {
-//   back: {
-//     src={back_btn},
-//   },
-//   refresh: {
-//     src={refresh_btn},
-//   },
-
-// };
 
 const PrimaryButton = styled.button`
   border: none;

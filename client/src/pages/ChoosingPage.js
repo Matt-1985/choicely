@@ -1,10 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
-import BackButton from "../components/BackButton";
-import FinalDesicionButton from "../components/FinalDecisionButton";
-import FilterDesicionButton from "../components/FilterDecisionButton";
-
 import { Link } from "react-router-dom";
+import BackButton from "../components/BackButton";
+import RouletteButton from "../components/RouletteButton";
+import FilterButton from "../components/FilterButton";
 
 const Div = styled.div`
   display: flex;
@@ -14,15 +13,15 @@ const Div = styled.div`
   margin-bottom: 15vh;
 `;
 
-export default function DesicionPage() {
+export default function ChoosingPage() {
   return (
     <>
       <Div>
         <Link to="/random" label="random">
-          <FinalDesicionButton />
+          <RouletteButton />
         </Link>
         <Link to="/select" label="select">
-          <FilterDesicionButton />
+          <FilterButton />
         </Link>
       </Div>
       <BackButton />
