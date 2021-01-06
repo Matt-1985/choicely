@@ -21,6 +21,7 @@ export default function OneClickDesicionScreen() {
 
   return (
     <>
+      <h1>BON APPETIT</h1>
       <ListItems listOfItems={randomRestaurants} background={true} />
 
       <NavBar onClick={changeButtonClick} />

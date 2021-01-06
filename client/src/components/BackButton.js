@@ -5,11 +5,18 @@ import { useHistory } from "react-router-dom";
 
 const PrimaryButton = styled.button`
   border: none;
-  background: transparent;
+  width: 100%;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
   grid-area: footer;
-  margin: 0 1rem;
-  :active {
-    opacity: 0.6;
+  background-color: var(--primary-color);
+  img {
+    :active {
+      opacity: 0.6;
+    }
   }
 `;
 

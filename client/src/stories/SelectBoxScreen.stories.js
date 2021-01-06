@@ -1,9 +1,9 @@
 import React from "react";
-import SelectBoxScreen from "../pages/SelectBoxScreen";
+import FilterPage from "../pages/FilterPage";
 
 export default {
-  title: "Pages/SelectBoxScreen",
-  components: SelectBoxScreen,
+  title: "Pages/FilterPage",
+  components: FilterPage,
 };
 
-export const ForthPage = (args) => <SelectBoxScreen {...args} />;
+export const ForthPage = (args) => <FilterPage {...args} />;

@@ -8,13 +8,13 @@ const BoxContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  padding-top: 15%;
+  padding-top: 10%;
   margin: 0 15%;
   gap: 100px;
 `;
 
 const BackgroundContainer = styled.div`
-  margin: 20px 0;
+  /* margin: 20px 0; */
   width: 100%;
   height: 100%;
   display: grid;
@@ -23,8 +23,9 @@ const BackgroundContainer = styled.div`
 `;
 
 const BackgroundDiv = styled.div`
+  margin: inherit;
   width: 100%;
-  height: 92%;
+  height: 100%;
   border: none;
   border-radius: 12px;
   background-color: ${(props) =>

@@ -49,7 +49,6 @@ export default function SelectBoxScreen() {
         placeholder="Wähle aus"
         className="multiselect"
       />
-
       <ListItems listOfItems={filteredRestaurants} />
 
       <NavBar onClick={changeButtonClick} />

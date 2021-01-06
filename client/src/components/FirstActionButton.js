@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components/macro";
 
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: content;
+  padding-top: 10%;
+`;
+
 const ActionButton = styled.button`
   position: relative;
   width: 200px;
@@ -93,7 +101,7 @@ const Outline = styled.div`
   top: 6px;
   width: 200px;
   height: 200px;
-  border: 1px solid #607a94;
+  border: 2.5px solid #607a94;
   border-radius: 50%;
   opacity: 3;
   z-index: 1;
@@ -104,9 +112,11 @@ const Outline = styled.div`
 
 export default function FirstActionButton() {
   return (
-    <ActionButton>
-      <Outline />
-      <span>Was gibts heute zu essen?</span>
-    </ActionButton>
+    <Div>
+      <ActionButton>
+        <Outline />
+        <span>Was gibts heute zu essen?</span>
+      </ActionButton>
+    </Div>
   );
 }

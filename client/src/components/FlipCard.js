@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const FlipCardContainer = styled.div`
   background-color: transparent;
-  margin: 8vw;
+  margin: 3rem;
   height: 300px;
   width: 250px;
   border-radius: 12px;

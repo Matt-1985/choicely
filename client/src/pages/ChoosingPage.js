@@ -5,12 +5,21 @@ import BackButton from "../components/BackButton";
 import RouletteButton from "../components/RouletteButton";
 import FilterButton from "../components/FilterButton";
 
+// display: flex;
+// flex-direction: column;
+// justify-content: center;
+// grid-area: content;
+// margin-bottom: 15vh;
+// `;
+
 const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   grid-area: content;
-  margin-bottom: 15vh;
+  padding-top: 10%;
+  margin: 0 15%;
+  gap: 50%;
 `;
 
 export default function ChoosingPage() {

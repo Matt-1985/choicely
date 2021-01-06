@@ -23,8 +23,8 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html, body {
-  height:100%;
-  width:100%;
+  height:100vh;
+  width:100vw;
   margin: 0;
   padding: 0;
 
@@ -53,9 +53,10 @@ background-color: var(--primary-color)
 
 }
 
-h1 {
+h1, span {
 font-family: "AtamiBold";
 font-size: 23;
+text-align: center;
 
 }
 
