@@ -8,22 +8,19 @@ const LogoContainer = styled.div`
   grid-area: content;
   place-items: center;
   img {
-    height: 20vh;
-    width: 80vw;
-  }
-
-  .slide-in-top {
+    width: 90%;
+    height: auto;
     animation: slide-in-top 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  }
 
-  @keyframes slide-in-top {
-    0% {
-      transform: translateY(-1000px);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
+    @keyframes slide-in-top {
+      0% {
+        transform: translateY(-1000px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   }
 `;

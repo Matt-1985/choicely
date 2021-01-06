@@ -50,6 +50,18 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongodb": "^3.6.3"
+    "mongodb": "^3.6.3",
+    "workbox-background-sync": "^6.0.2",
+    "workbox-broadcast-update": "^6.0.2",
+    "workbox-cacheable-response": "^6.0.2",
+    "workbox-core": "^6.0.2",
+    "workbox-expiration": "^6.0.2",
+    "workbox-google-analytics": "^6.0.2",
+    "workbox-navigation-preload": "^6.0.2",
+    "workbox-precaching": "^6.0.2",
+    "workbox-range-requests": "^6.0.2",
+    "workbox-routing": "^6.0.2",
+    "workbox-strategies": "^6.0.2",
+    "workbox-streams": "^6.0.2"
   }
 }
