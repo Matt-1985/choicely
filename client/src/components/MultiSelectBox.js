@@ -17,6 +17,7 @@ export default function MultiSelectBox({ onChange, options }) {
         onChange={onChange}
         options={options}
         className="multiselect"
+        placeholder="Wähle bis zu 3 Optionen"
       />
     </div>
   );

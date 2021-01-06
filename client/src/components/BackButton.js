@@ -1,25 +1,22 @@
 import React from "react";
-import back_btn from "../stories/assets/back_btn.svg";
+import back_btn from "../assets/back_btn.svg";
 import styled from "styled-components/macro";
 import { useHistory } from "react-router-dom";
 
-// const icons = {
-//   back: {
-//     src={back_btn},
-//   },
-//   refresh: {
-//     src={refresh_btn},
-//   },
-
-// };
-
 const PrimaryButton = styled.button`
   border: none;
-  background: transparent;
+  width: 100%;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-evenly;
   grid-area: footer;
-  margin: 0 1rem;
-  :active {
-    opacity: 0.6;
+  background-color: var(--primary-color);
+  img {
+    :active {
+      opacity: 0.6;
+    }
   }
 `;
 
