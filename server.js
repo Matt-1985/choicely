@@ -10,11 +10,11 @@ const { getRandomRestaurants } = require("./lib/randomRestaurant");
 const app = express();
 const port = process.env.PORT || 3013;
 
-// app.use(express.static(path.join(__dirname, "client/build")));
-// app.use(
-//   "/storybook",
-//   express.static(path.join(__dirname, "client/storybook-static"))
-// );
+app.use(express.static(path.join(__dirname, "client/build")));
+app.use(
+  "/storybook",
+  express.static(path.join(__dirname, "client/storybook-static"))
+);
 
 app.get("/api/restaurants/:values", async (req, res) => {
   try {
