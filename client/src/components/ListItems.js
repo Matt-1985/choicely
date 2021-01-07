@@ -2,14 +2,15 @@ import styled from "styled-components/macro";
 import PropTypes from "prop-types";
 import NavBar from "../components/NavBar";
 import FlipCard from "../components/FlipCard";
+import ErrorMessage from "../components/ErrorMessage";
 
 const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  grid-area: content;
+  /* grid-area: content; */
   padding-top: 10%;
-  margin: 0 15%;
+  /* margin: 0 15%; */
   gap: 100px;
 `;
 
@@ -54,23 +55,29 @@ export default function ListItems({
   let showListItems = "";
 
   if (listOfItems != null) {
-    showListItems = (
-      <BackgroundDiv background={background}>
-        <Frame>
-          {listOfItems?.map((item) => (
-            <FlipCard
-              key={item._id}
-              restaurantImg={item.img}
-              restaurantName={item.name}
-              restaurantDiet={item.diet}
-              restaurantCuisine={item.cuisine}
-              restaurantAddress={item.address}
-              restaurantContact={item.contact}
-            />
-          ))}
-        </Frame>
-      </BackgroundDiv>
-    );
+    if (Array.isArray(listOfItems) && listOfItems.length === 0) {
+      showListItems = (
+        <ErrorMessage title="Leider konnten wir keine passenden Restaurants für dich finden" />
+      );
+    } else {
+      showListItems = (
+        <BackgroundDiv background={background}>
+          <Frame>
+            {listOfItems?.map((item) => (
+              <FlipCard
+                key={item._id}
+                restaurantImg={item.img}
+                restaurantName={item.name}
+                restaurantDiet={item.diet}
+                restaurantCuisine={item.cuisine}
+                restaurantAddress={item.address}
+                restaurantContact={item.contact}
+              />
+            ))}
+          </Frame>
+        </BackgroundDiv>
+      );
+    }
   }
 
   return (

@@ -30,7 +30,6 @@ app.get("/api/restaurants/:values", async (req, res) => {
       .status(500)
       .json({ message: "Internal Server error", dsc: error.message });
   }
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 app.get("/api/random-restaurants", async (req, res) => {
@@ -48,13 +47,12 @@ app.get("/api/random-restaurants", async (req, res) => {
       .status(500)
       .json({ message: "Internal Server error", dsc: error.message });
   }
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 // Handle React routing, return all requests to React app
 app.get("*", (req, res) => {
-  console.log(req);
-  res.sendFile(path.join(__dirname, "client/build", "index.html"));
+  console.log(req, res);
+  // res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 async function run() {
