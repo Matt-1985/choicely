@@ -9,8 +9,19 @@ export default function SelectBoxScreen() {
   const [value, setValue] = useState("");
   const [filteredRestaurants, setFilteredRestaurants] = useState(null);
   const [refresh, setRefresh] = useState(null);
+  const [customOptions, setCustomOptions] = useState(options);
 
   const handleOnChange = (val) => {
+    let selectedOptions = [];
+    let valSplit = val.split(",");
+    if (valSplit.length >= 3) {
+      selectedOptions = valSplit.map((item) => {
+        return { label: item.split(":")[1], value: item };
+      });
+      setCustomOptions(selectedOptions);
+    } else {
+      setCustomOptions(options);
+    }
     setValue(val);
   };
 
@@ -20,6 +31,7 @@ export default function SelectBoxScreen() {
 
   useEffect(() => {
     if (!value) {
+      setFilteredRestaurants(null);
       return;
     }
     async function getData() {
@@ -45,7 +57,7 @@ export default function SelectBoxScreen() {
     <>
       <MultiSelectBox
         onChange={handleOnChange}
-        options={options}
+        options={customOptions}
         placeholder="Wähle aus"
         className="multiselect"
       />
